@@ -12,6 +12,7 @@ export default function AppSider({ menuItems }: { menuItems: IMenuItems[] }) {
       collapsed={collapsed}
       onCollapse={(value) => setCollapsed(value)}
       theme="light"
+      breakpoint="lg"
     >
       <div className="demo-logo-vertical" />
       <Menu

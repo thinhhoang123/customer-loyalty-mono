@@ -9,8 +9,9 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import IMenuItems from '../models/IMenuItems';
+import AppHeader from './AppHeader';
 
-const { Header, Content, Footer } = Layout;
+const { Content, Footer } = Layout;
 
 export default function AppLayout({
   children,
@@ -27,7 +28,7 @@ export default function AppLayout({
     <Layout style={{ minHeight: '100vh' }}>
       <AppSider menuItems={menuItems} />
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
+        <AppHeader />
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>
