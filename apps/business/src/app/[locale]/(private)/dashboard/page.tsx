@@ -1,3 +1,12 @@
+import { SignedOut, SignInButton } from '@clerk/nextjs';
+
 export default function DashboardPage() {
-    return <>Dashboard page</>
+  return (
+    <>
+      <SignedOut>
+        <SignInButton />
+      </SignedOut>
+      Dashboard page
+    </>
+  );
 }

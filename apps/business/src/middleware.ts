@@ -1,12 +1,24 @@
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import createMiddleware from 'next-intl/middleware';
 
-export default createMiddleware({
-  // A list of all locales that are supported
+const intlMiddleware = createMiddleware({
   locales: ['en', 'vi'],
-
-  // Used when no locale matches
   defaultLocale: 'en',
 });
+
+// const isPublicRoute = createRouteMatcher([
+//   '/:locale/sign-in(.*)',
+//   '/:locale/sign-up(.*)',
+// ]);
+const isProtectedRoute = createRouteMatcher(['/:locale/dashboard(.*)']);
+
+export default clerkMiddleware(
+  (auth, req) => {
+    if (isProtectedRoute(req)) auth().protect();
+    return intlMiddleware(req);
+  },
+  { debug: true }
+);
 
 export const config = {
   // Match only internationalized pathnames
@@ -17,5 +29,8 @@ export const config = {
     '/((?!api|_next|_vercel|.*\\..*).*)',
     // However, match all pathnames within `/users`, optionally with a locale prefix
     '/([\\w-]+)?/users/(.+)',
+    '/((?!.*\\..*|_next).*)',
+    '/',
+    '/(api|trpc)(.*)',
   ],
 };
