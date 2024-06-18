@@ -4,6 +4,7 @@ import './globals.css';
 import AntTheme from '@repo/ui/AntTheme';
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+import antdThemeConfig from '../../../ant.config';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -22,7 +23,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body className={montserrat.className}>
-        <AntTheme>
+        <AntTheme theme={antdThemeConfig}>
           <NextIntlClientProvider messages={messages}>
             <main>{children}</main>
           </NextIntlClientProvider>
@@ -31,4 +32,3 @@ export default async function RootLayout({
     </html>
   );
 }
-

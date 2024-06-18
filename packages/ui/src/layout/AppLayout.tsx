@@ -16,9 +16,11 @@ const { Content, Footer } = Layout;
 export default function AppLayout({
   children,
   menuItems = defaultMenuItems,
+  header,
 }: {
   children: React.ReactNode;
   menuItems?: IMenuItems[];
+  header?: React.ReactNode;
 }) {
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -28,7 +30,7 @@ export default function AppLayout({
     <Layout style={{ minHeight: '100vh' }}>
       <AppSider menuItems={menuItems} />
       <Layout>
-        <AppHeader />
+        <AppHeader header={header} />
         <Content style={{ margin: '0 16px' }}>
           <Breadcrumb style={{ margin: '16px 0' }}>
             <Breadcrumb.Item>User</Breadcrumb.Item>

@@ -14,7 +14,6 @@ export default function AppSider({ menuItems }: { menuItems: IMenuItems[] }) {
       theme="light"
       breakpoint="lg"
     >
-      <div className="demo-logo-vertical" />
       <Menu
         theme="light"
         defaultSelectedKeys={['1']}
