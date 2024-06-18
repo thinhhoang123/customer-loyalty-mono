@@ -24,16 +24,16 @@ export default async function RootLayout({
   const { userId } = auth();
   console.log(userId);
   return (
-    <html lang={locale}>
-      <body className={montserrat.className}>
-        <ClerkProvider>
+    <ClerkProvider>
+      <html lang={locale}>
+        <body className={montserrat.className}>
           <AntTheme theme={antdThemeConfig}>
             <NextIntlClientProvider messages={messages}>
               <main>{children}</main>
             </NextIntlClientProvider>
           </AntTheme>
-        </ClerkProvider>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
