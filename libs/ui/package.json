@@ -1,5 +1,5 @@
 {
-  "name": "@customer-loyalty-nx/shared-ui",
+  "name": "@customer-loyalty-nx/share-ui",
   "version": "0.0.1",
   "main": "./index.js",
   "types": "./index.d.ts",

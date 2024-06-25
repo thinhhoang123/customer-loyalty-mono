@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@customer-loyalty-nx/shared-ui": ["shared-ui/src/index.ts"]
+      "@customer-loyalty-nx/assets": ["libs/assets/src/index.ts"],
+      "@customer-loyalty-nx/ui": ["libs/ui/src/index.ts"],
     }
   },
   "exclude": ["node_modules", "tmp"]
