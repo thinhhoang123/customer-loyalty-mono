@@ -1,5 +1,6 @@
 import { BrandIcon } from '@customer-loyalty-nx/assets';
 import { AppShell, Burger, Group } from '@mantine/core';
+import { LoyaltyButtonMode } from '../components';
 
 export default function AppHeader({
   desktopOpened,
@@ -13,8 +14,8 @@ export default function AppHeader({
   toggleMobile: () => void;
 }) {
   return (
-    <AppShell.Header>
-      <Group h="100%" px="md">
+    <AppShell.Header className="flex items-center justify-between px-4">
+      <Group h="100%">
         <Burger
           opened={mobileOpened}
           onClick={toggleMobile}
@@ -29,6 +30,7 @@ export default function AppHeader({
         />
         <img src={(BrandIcon as any).src} width={130} height={130} alt="logo" />
       </Group>
+      {/* <LoyaltyButtonMode /> */}
     </AppShell.Header>
   );
 }

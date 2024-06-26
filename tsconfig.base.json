@@ -16,7 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@customer-loyalty-nx/assets": ["libs/assets/src/index.ts"],
-      "@customer-loyalty-nx/ui": ["libs/ui/src/index.ts"],
+      "@customer-loyalty-nx/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

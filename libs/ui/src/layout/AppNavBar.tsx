@@ -7,31 +7,41 @@ import {
 } from '@tabler/icons-react';
 import { useState } from 'react';
 import INavItems from '../models/INavItems';
+import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 const data: INavItems[] = [
-  { icon: IconGauge, label: 'Dashboard' },
+  { icon: IconGauge, label: 'Dashboard', href: '#' },
   {
     icon: IconFingerprint,
     label: 'Security',
     children: [
-      { label: 'Users' },
-      { label: 'Roles' },
-      { label: 'Permissions' },
+      { label: 'Users', href: '#' },
+      { label: 'Roles', href: '#' },
+      { label: 'Permissions', href: '#' },
     ],
   },
-  { icon: IconActivity, label: 'Activity' },
+  { icon: IconActivity, label: 'Activity', href: '#' },
 ];
 
-export default function AppNavBar({ navItems }: { navItems?: INavItems[] }) {
-  const [active, setActive] = useState('');
+export default function AppNavBar({
+  navItems,
+  defaultNavItem,
+}: {
+  navItems?: INavItems[];
+  defaultNavItem?: string;
+}) {
+  const [active, setActive] = useState(defaultNavItem ?? '');
+  const t = useTranslations('NAV_BAR');
 
   const renderNav = (data: INavItems[]) => {
     return data.map((item, index) => (
       <NavLink
-        href="#required-for-focus"
+        component={Link}
+        href={item.href ?? '#'}
         key={item.label}
         active={item.label === active}
-        label={item.label}
+        label={t(item.label)}
         rightSection={
           item.children ? <IconChevronRight size="1rem" stroke={1.5} /> : null
         }
@@ -46,7 +56,7 @@ export default function AppNavBar({ navItems }: { navItems?: INavItems[] }) {
   };
 
   return (
-    <AppShell.Navbar p="md">
+    <AppShell.Navbar p="sm" withBorder={false}>
       <Box>{renderNav(navItems ?? data)}</Box>
     </AppShell.Navbar>
   );
