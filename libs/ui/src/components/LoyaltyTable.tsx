@@ -15,14 +15,19 @@ export default function LoyaltyTable<T extends object>({
   columns,
   data,
 }: LoyaltyTableProps<T>) {
-  const table = useMantineReactTable({
-    columns,
-    data,
-    enableColumnActions: false,
-    enableColumnFilters: false,
-    initialState: {
-      showGlobalFilter: true, //show the global filter by default
-    },
-  });
-  return <MantineReactTable table={table} />;
+  return (
+    <MantineReactTable
+      columns={columns}
+      data={data}
+      enableColumnPinning
+      enableStickyHeader
+      initialState={{
+        columnPinning: { right: ['actions'] },
+        showGlobalFilter: true,
+      }}
+      mantineTableContainerProps={{
+        style: { maxHeight: 'calc(100vh - 300px)' },
+      }}
+    />
+  );
 }

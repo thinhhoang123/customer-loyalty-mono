@@ -11,5 +11,10 @@
     "TITLE": "Customers",
     "ADD": "Add Customers",
     "IMPORT": "Import Customers"
+  },
+  "GENDER": {
+    "MALE": "Male",
+    "FEMALE": "Female",
+    "OTHER": "Other"
   }
 }

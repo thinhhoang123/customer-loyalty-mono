@@ -4,6 +4,12 @@ import '@mantine/core/styles.css';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import theme from '../../constants/theme';
+import { Montserrat } from 'next/font/google';
+
+const montserrat = Montserrat({
+  variable: '--font-montserrat',
+  subsets: ['latin'],
+});
 
 export const metadata = {
   title: 'Welcome to Customer Loyalty',
@@ -20,9 +26,9 @@ export default async function RootLayout({
   const messages = await getMessages();
   return (
     <html lang={locale}>
-      <body>
+      <body className={montserrat.className}>
         <NextIntlClientProvider messages={messages}>
-          <MantineProvider theme={theme} defaultColorScheme="auto">
+          <MantineProvider theme={theme} defaultColorScheme="light">
             {children}
           </MantineProvider>
         </NextIntlClientProvider>
