@@ -2,6 +2,7 @@
 import { LoyaltyTable } from '@customer-loyalty-nx/ui';
 import { ActionIcon } from '@mantine/core';
 import { IconPencil, IconTrash } from '@tabler/icons-react';
+import IconSize from 'apps/business/src/constants/IconSize';
 import EGender from 'apps/business/src/enum/EGender';
 import ICustomers from 'apps/business/src/models/ICustomers';
 import { MRT_ColumnDef } from 'mantine-react-table';
@@ -67,10 +68,10 @@ export default function CustomerTable({
         return (
           <div className="flex gap-2">
             <ActionIcon aria-label="edit" variant="light">
-              <IconPencil size={18} />
+              <IconPencil size={IconSize} />
             </ActionIcon>
             <ActionIcon aria-label="delete" color="red">
-              <IconTrash size={18} />
+              <IconTrash size={IconSize} />
             </ActionIcon>
           </div>
         );

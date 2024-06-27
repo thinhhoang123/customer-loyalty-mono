@@ -5,6 +5,8 @@ import getListCustomer from 'apps/business/src/faker/customers/listCustomer';
 import ICustomers from 'apps/business/src/models/ICustomers';
 import { getTranslations } from 'next-intl/server';
 import CustomerTable from './_components/CustomerTable';
+import Link from 'next/link';
+import IconSize from 'apps/business/src/constants/IconSize';
 
 export default async function CustomersPage() {
   const t = await getTranslations('CUSTOMERS');
@@ -18,11 +20,17 @@ export default async function CustomersPage() {
           <>
             <Button
               variant="default"
-              leftSection={<IconFileImport size={14} />}
+              leftSection={<IconFileImport size={IconSize} />}
             >
               {t('IMPORT')}
             </Button>
-            <Button leftSection={<IconPlus size={14} />}>{t('ADD')}</Button>
+            <Button
+              leftSection={<IconPlus size={IconSize} />}
+              component={Link}
+              href="/customers/new-customer"
+            >
+              {t('ADD')}
+            </Button>
           </>
         }
       />
